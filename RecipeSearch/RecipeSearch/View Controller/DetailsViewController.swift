@@ -1,6 +1,6 @@
 //
 //  DetailsViewController.swift
-//  News
+//  RecipeSearch
 //
 //  Created by Ahmed Hesham on 7/26/19.
 //  Copyright © 2019 Ahmed Hesham. All rights reserved.
@@ -16,14 +16,16 @@ class DetailsViewController: UIViewController {
     
     @IBOutlet weak var recipeTitle: UILabel!
     
-    @IBOutlet weak var recipeButton: UIButton!
+    @IBOutlet weak var urlLabel: UILabel!
     
     @IBOutlet weak var recipeIngredients: UILabel!
     var receipeURL : String?
-    var recipeIngredient : String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        let tap = UITapGestureRecognizer(target: self, action: #selector(DetailsViewController.openSafariVC))
+       urlLabel.addGestureRecognizer(tap)
+        urlLabel.isUserInteractionEnabled = true
     }
     
     func setDescriptonData(with recepie :RecipeModel)  {
@@ -31,11 +33,8 @@ class DetailsViewController: UIViewController {
         receipeImage.moa.url = recepie.image
         recipeTitle.text = recepie.label
         receipeURL = recepie.url
-        recipeButton.titleLabel?.text = receipeURL
-        recepie.ingredientLines?.forEach({ (line) in
-            recipeIngredient = "\(recipeIngredient ?? "")\n\(recipeIngredient ?? "")"
-        })
-        recipeIngredients.text = recipeIngredient
+        urlLabel.text = receipeURL
+        recipeIngredients.text = recepie.ingredientLines?.joined(separator: "\n")
     }
     
     @IBAction func dismissAction(_ sender: Any) {
@@ -43,13 +42,10 @@ class DetailsViewController: UIViewController {
     }
     
     
-    @IBAction func recipeAction(_ sender: Any) {
+   @objc func openSafariVC(sender:UITapGestureRecognizer) {
         if let recipeUrl = URL(string: receipeURL ?? "") {
             let safariVC = SFSafariViewController(url: recipeUrl)
-         //   self.dismiss(animated: true) {
-                self.present(safariVC, animated: true, completion: nil)
-          //  }
-            
+            self.present(safariVC, animated: true, completion: nil)
         }
     }
     

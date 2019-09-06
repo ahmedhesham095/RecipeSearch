@@ -1,6 +1,6 @@
 //
 //  ResultsExtension.swift
-//  News
+//  RecipeSearch
 //
 //  Created by Ahmed Hesham on 8/12/19.
 //  Copyright © 2019 Ahmed Hesham. All rights reserved.

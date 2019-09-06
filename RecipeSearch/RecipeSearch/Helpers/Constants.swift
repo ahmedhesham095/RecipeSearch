@@ -1,6 +1,6 @@
 //
 //  Constants.swift
-//  News
+//  RecipeSearch
 //
 //  Created by Vodafone on 8/6/19.
 //  Copyright © 2019 Ahmed Hesham. All rights reserved.
