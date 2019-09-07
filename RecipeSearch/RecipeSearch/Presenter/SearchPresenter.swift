@@ -20,9 +20,9 @@ class SearchPresenter: NSObject {
         self.foodDelegate = foodDelegate
     }
     /**
-     calls the network manager for loading news
-     parameter countryCode: Describe the country code
-     parameter pageOffset: Describe the offset in the API
+     calls the network manager for searching for food
+     parameter query: search query
+     parameter item number: number of items returning in the response
      */
     func search(with query: String , itemNumber : Int){
         foodDelegate?.showLoader()
@@ -37,5 +37,11 @@ class SearchPresenter: NSObject {
                 self.foodDelegate?.showErrorMessage()
             }
         }
+    }
+    /*
+    calls the network manager to return the cached search list
+    */
+    func getCachedData() -> [RecipeList] {
+       return APIManager.apiSharredInistance.loadFromCache()
     }
 }

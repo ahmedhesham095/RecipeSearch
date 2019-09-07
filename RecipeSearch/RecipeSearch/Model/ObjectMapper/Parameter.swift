@@ -25,6 +25,5 @@ class Parameter : Mappable{
         appKey <- map["app_key"]
         query <- map["q"]
         sane <- map["sane"]
-        
     }
 }

@@ -12,6 +12,5 @@ protocol FoodProtocol {
     func showLoader()
     func hideLoader()
     func configureUI(with result : SearchResult)
-    func  showErrorMessage()
-    
+    func showErrorMessage()
 }

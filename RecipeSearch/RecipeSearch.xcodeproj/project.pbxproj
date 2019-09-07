@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -27,7 +27,7 @@
 		4A1C560E231EFDD900413E37 /* FoodProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1C55F3231EFDD900413E37 /* FoodProtocol.swift */; };
 		4A1C560F231EFDD900413E37 /* SearchResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1C55F6231EFDD900413E37 /* SearchResult.swift */; };
 		4A1C5610231EFDD900413E37 /* Parameter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1C55F7231EFDD900413E37 /* Parameter.swift */; };
-		4A1C5611231EFDD900413E37 /* ArticleList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1C55F9231EFDD900413E37 /* ArticleList.swift */; };
+		4A1C5611231EFDD900413E37 /* RecipeList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1C55F9231EFDD900413E37 /* RecipeList.swift */; };
 		4A1C5612231EFDD900413E37 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1C55FB231EFDD900413E37 /* Constants.swift */; };
 		4A1C5614231EFDD900413E37 /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1C55FE231EFDD900413E37 /* APIService.swift */; };
 		4A1C5615231EFDD900413E37 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1C55FF231EFDD900413E37 /* APIManager.swift */; };
@@ -86,7 +86,7 @@
 		4A1C55F3231EFDD900413E37 /* FoodProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoodProtocol.swift; sourceTree = "<group>"; };
 		4A1C55F6231EFDD900413E37 /* SearchResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchResult.swift; sourceTree = "<group>"; };
 		4A1C55F7231EFDD900413E37 /* Parameter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Parameter.swift; sourceTree = "<group>"; };
-		4A1C55F9231EFDD900413E37 /* ArticleList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArticleList.swift; sourceTree = "<group>"; };
+		4A1C55F9231EFDD900413E37 /* RecipeList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecipeList.swift; sourceTree = "<group>"; };
 		4A1C55FB231EFDD900413E37 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		4A1C55FE231EFDD900413E37 /* APIService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
 		4A1C55FF231EFDD900413E37 /* APIManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
@@ -282,7 +282,7 @@
 		4A1C55F8231EFDD900413E37 /* Realm */ = {
 			isa = PBXGroup;
 			children = (
-				4A1C55F9231EFDD900413E37 /* ArticleList.swift */,
+				4A1C55F9231EFDD900413E37 /* RecipeList.swift */,
 			);
 			path = Realm;
 			sourceTree = "<group>";
@@ -520,7 +520,7 @@
 				4A1C5610231EFDD900413E37 /* Parameter.swift in Sources */,
 				4A1C5615231EFDD900413E37 /* APIManager.swift in Sources */,
 				4A1C560C231EFDD900413E37 /* NotificationExtension.swift in Sources */,
-				4A1C5611231EFDD900413E37 /* ArticleList.swift in Sources */,
+				4A1C5611231EFDD900413E37 /* RecipeList.swift in Sources */,
 				4A1C5616231EFDD900413E37 /* ViewControllerUtils.swift in Sources */,
 				4A1C5620231F0B1400413E37 /* Hit.swift in Sources */,
 				4A1C55AE231EF93C00413E37 /* ViewController.swift in Sources */,
@@ -715,6 +715,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = RecipeSearch/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -733,6 +734,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = RecipeSearch/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

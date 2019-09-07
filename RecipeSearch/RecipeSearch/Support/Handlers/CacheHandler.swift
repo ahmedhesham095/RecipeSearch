@@ -19,8 +19,8 @@ class CacheHandler {
     /**
      Save array of objects to database
      */
-    func setArray(with array :[ArticleList])  {
-        if getObjects(type: ArticleList.self).isEmpty == false {
+    func setArray(with array :[RecipeList])  {
+        if getObjects(type: RecipeList.self).isEmpty == false {
             try! realm.write {
                 realm.deleteAll()
             }
@@ -36,10 +36,10 @@ class CacheHandler {
     }
     
     /**
-     Returs an array of Articles
+     Returs an array of Recipes
      */
-    func getObjects(type: ArticleList.Type) -> [ArticleList] {
-        let objects = realm.objects(ArticleList.self).toArray(ofType: ArticleList.self) as [ArticleList]
+    func getObjects(type: RecipeList.Type) -> [RecipeList] {
+        let objects = realm.objects(RecipeList.self).toArray(ofType: RecipeList.self) as [RecipeList]
         return objects
     }
     

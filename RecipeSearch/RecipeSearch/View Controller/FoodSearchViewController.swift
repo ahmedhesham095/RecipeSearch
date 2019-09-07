@@ -20,6 +20,7 @@ class FoodSearchViewController: UIViewController {
     }()
     let searchController = UISearchController(searchResultsController: nil)
     var searchResult : SearchResult?
+    var searchSuggesstions : [RecipeList]?
     var itemsNumber = 10
     var isLoadMore = false
     var searchString : String?
@@ -53,24 +54,31 @@ class FoodSearchViewController: UIViewController {
         }
     }
     func setupSearchController() {
-        searchController.searchResultsUpdater = self
         searchController.searchBar.delegate = self
         searchController.hidesNavigationBarDuringPresentation = false
         searchController.dimsBackgroundDuringPresentation = false
         searchTable.tableHeaderView = searchController.searchBar
-        
     }
 }
 
 extension FoodSearchViewController : UITableViewDelegate , UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if let suggestions = searchSuggesstions?.count {
+            if suggestions > 0 {
+                return suggestions
+            }
+        }
         return searchResult?.hits?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = searchTable.dequeueReusableCell(withIdentifier: Constants.CELL_IDENTIFIER , for: indexPath) as! SearchViewCell
-        if  let recepie = searchResult?.hits?[indexPath.row].recipe {
-            cell.configureCell(with:  recepie)
+        if searchSuggesstions?.count ?? 0 > 0 {
+            cell.configureCell(or: searchSuggesstions?[indexPath.row])
+        }else {
+            if  let recepie = searchResult?.hits?[indexPath.row].recipe {
+                cell.configureCell(with: recepie)
+            }
         }
         return cell
     }
@@ -83,28 +91,32 @@ extension FoodSearchViewController : UITableViewDelegate , UITableViewDataSource
         detailsVC.modalPresentationStyle = .overCurrentContext
         detailsVC.popoverPresentationController?.sourceView = self.view
         self.present(detailsVC , animated: true , completion: {
-            if  let recepie = self.searchResult?.hits?[indexPath.row].recipe  {
-                detailsVC.setDescriptonData(with: recepie)
+            if self.searchSuggesstions?.count ?? 0 > 0 {
+                detailsVC.setDescriptonData(or: self.searchSuggesstions?[indexPath.row])
+            } else {
+                if  let recepie = self.searchResult?.hits?[indexPath.row].recipe {
+                    detailsVC.setDescriptonData(with: recepie)
+                }
             }
         })
-    
     }
 }
 
-extension FoodSearchViewController : UISearchBarDelegate, UISearchDisplayDelegate , UISearchResultsUpdating {
+extension FoodSearchViewController : UISearchBarDelegate, UISearchDisplayDelegate {
     
-    func updateSearchResults(for searchController: UISearchController) {
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        self.searchSuggesstions = presenter.getCachedData()
+        self.searchTable.reloadData()
     }
     
-    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-    }
-    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searchSuggesstions?.removeAll()
         searchString = searchBar.text
         presenter.search(with: searchString ?? "", itemNumber: itemsNumber)
     }
+    
     func removeSearchView() {
         if searchController.isActive == true {
-            
             searchController.isActive = false
         }
     }

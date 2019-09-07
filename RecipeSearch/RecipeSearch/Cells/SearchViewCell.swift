@@ -19,8 +19,19 @@ class SearchViewCell: UITableViewCell {
     
     @IBOutlet weak var searchHealthLabel: UILabel!
     
-    func  configureCell(with model : RecipeModel)  {
+    func  configureCell(with model : RecipeModel? = nil , or cachedModel : RecipeList? = nil)  {
         var healthText : String?
+        guard let model = model else {
+            searchImageView.image = UIImage(named: "placeholder.jpg")
+            searchImageView.moa.url = cachedModel?.imageURL
+            searchTtileLabel.text = cachedModel?.title
+            searchSouceLabel.text = cachedModel?.source
+            cachedModel?.healthLabels.forEach({ (healthLabel) in
+                healthText = "\(healthText ?? "")\n\(healthLabel)"
+            })
+            searchHealthLabel.text = healthText
+            return
+        }
         searchImageView.image = UIImage(named: "placeholder.jpg")
         searchImageView.moa.url = model.image
         searchTtileLabel.text = model.label

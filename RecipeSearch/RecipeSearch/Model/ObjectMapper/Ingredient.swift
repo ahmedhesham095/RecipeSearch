@@ -26,7 +26,5 @@ class Ingredient : Mappable{
         quantity <- map["quantity"]
         text <- map["text"]
         weight <- map["weight"]
-        
     }
-    
 }

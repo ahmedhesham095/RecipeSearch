@@ -24,25 +24,33 @@ class DetailsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         let tap = UITapGestureRecognizer(target: self, action: #selector(DetailsViewController.openSafariVC))
-       urlLabel.addGestureRecognizer(tap)
+        urlLabel.addGestureRecognizer(tap)
         urlLabel.isUserInteractionEnabled = true
     }
     
-    func setDescriptonData(with recepie :RecipeModel)  {
-        receipeImage.image = UIImage(named: "placeholder.jpg")
-        receipeImage.moa.url = recepie.image
-        recipeTitle.text = recepie.label
-        receipeURL = recepie.url
-        urlLabel.text = receipeURL
-        recipeIngredients.text = recepie.ingredientLines?.joined(separator: "\n")
+    func setDescriptonData(with recepie :RecipeModel? = nil, or cachedRecipe: RecipeList? = nil) {
+        guard let cachedRecipeObj = cachedRecipe else {
+            self.receipeImage.image = UIImage(named: "placeholder.jpg")
+            self.receipeImage.moa.url = recepie?.image
+            self.recipeTitle.text = recepie?.label
+            self.receipeURL = recepie?.url
+            self.urlLabel.text = self.receipeURL
+            self.recipeIngredients.text = recepie?.ingredientLines?.joined(separator: "\n")
+            return
+        }
+        self.receipeImage.image = UIImage(named: "placeholder.jpg")
+        self.receipeImage.moa.url = cachedRecipeObj.imageURL
+        self.recipeTitle.text = cachedRecipeObj.title
+        self.receipeURL = cachedRecipeObj.url
+        self.urlLabel.text = self.receipeURL
+        self.recipeIngredients.text = cachedRecipeObj.ingredientLines.joined(separator: "\n")
     }
     
     @IBAction func dismissAction(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
     
-    
-   @objc func openSafariVC(sender:UITapGestureRecognizer) {
+    @objc func openSafariVC(sender:UITapGestureRecognizer) {
         if let recipeUrl = URL(string: receipeURL ?? "") {
             let safariVC = SFSafariViewController(url: recipeUrl)
             self.present(safariVC, animated: true, completion: nil)

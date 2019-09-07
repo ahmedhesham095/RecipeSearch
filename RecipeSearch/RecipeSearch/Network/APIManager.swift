@@ -30,6 +30,7 @@ class APIManager {
                 do {
                     print("response success")
                     let loadedData = try response.mapObject(SearchResult.self)
+                    self.cache.setArray(with: RecipeList.convertToRealmModel(with: loadedData.hits ?? []))
                     completion(true , loadedData)
                 }
                 catch {
@@ -45,15 +46,14 @@ class APIManager {
         })
     }
     
-//    func loadFromCache() -> [ArticleList]{
-//        var cachedArticles : [ArticleList]?
-//        let objects = self.cache.getObjects(type: ArticleList.self)
-//        if objects.count > 5 {
-//            cachedArticles = Array(objects.prefix(5))
-//        } else {
-//            cachedArticles = objects
-//        }
-//        return cachedArticles ?? []
-//    }
-//    
+    func loadFromCache() -> [RecipeList]{
+        var cachedRecipes : [RecipeList]?
+        let objects = self.cache.getObjects(type: RecipeList.self)
+        if objects.count > 10 {
+            cachedRecipes = Array(objects.prefix(10))
+        } else {
+            cachedRecipes = objects
+        }
+        return cachedRecipes ?? []
+    }
 }
