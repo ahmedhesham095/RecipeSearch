@@ -8,6 +8,7 @@
 
 import Foundation
 import Moya
+import Moya_ObjectMapper
 
 class APIManager {
     
