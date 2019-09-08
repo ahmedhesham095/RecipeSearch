@@ -22,7 +22,6 @@
 		4A1C5607231EFDD900413E37 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1C55E8231EFDD800413E37 /* DetailsViewController.swift */; };
 		4A1C5608231EFDD900413E37 /* SearchPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1C55EA231EFDD800413E37 /* SearchPresenter.swift */; };
 		4A1C560B231EFDD900413E37 /* ResultsExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1C55EF231EFDD900413E37 /* ResultsExtension.swift */; };
-		4A1C560C231EFDD900413E37 /* NotificationExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1C55F0231EFDD900413E37 /* NotificationExtension.swift */; };
 		4A1C560D231EFDD900413E37 /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1C55F1231EFDD900413E37 /* UIViewExtension.swift */; };
 		4A1C560E231EFDD900413E37 /* FoodProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1C55F3231EFDD900413E37 /* FoodProtocol.swift */; };
 		4A1C560F231EFDD900413E37 /* SearchResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1C55F6231EFDD900413E37 /* SearchResult.swift */; };
@@ -81,7 +80,6 @@
 		4A1C55E8231EFDD800413E37 /* DetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
 		4A1C55EA231EFDD800413E37 /* SearchPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchPresenter.swift; sourceTree = "<group>"; };
 		4A1C55EF231EFDD900413E37 /* ResultsExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultsExtension.swift; sourceTree = "<group>"; };
-		4A1C55F0231EFDD900413E37 /* NotificationExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationExtension.swift; sourceTree = "<group>"; };
 		4A1C55F1231EFDD900413E37 /* UIViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
 		4A1C55F3231EFDD900413E37 /* FoodProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoodProtocol.swift; sourceTree = "<group>"; };
 		4A1C55F6231EFDD900413E37 /* SearchResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchResult.swift; sourceTree = "<group>"; };
@@ -244,7 +242,6 @@
 			isa = PBXGroup;
 			children = (
 				4A1C55EF231EFDD900413E37 /* ResultsExtension.swift */,
-				4A1C55F0231EFDD900413E37 /* NotificationExtension.swift */,
 				4A1C55F1231EFDD900413E37 /* UIViewExtension.swift */,
 			);
 			path = Extensions;
@@ -519,7 +516,6 @@
 			files = (
 				4A1C5610231EFDD900413E37 /* Parameter.swift in Sources */,
 				4A1C5615231EFDD900413E37 /* APIManager.swift in Sources */,
-				4A1C560C231EFDD900413E37 /* NotificationExtension.swift in Sources */,
 				4A1C5611231EFDD900413E37 /* RecipeList.swift in Sources */,
 				4A1C5616231EFDD900413E37 /* ViewControllerUtils.swift in Sources */,
 				4A1C5620231F0B1400413E37 /* Hit.swift in Sources */,
