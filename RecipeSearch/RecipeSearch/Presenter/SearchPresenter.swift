@@ -6,11 +6,7 @@
 //  Copyright © 2019 Ahmed Hesham. All rights reserved.
 //
 
-import UIKit
-import Moya_ObjectMapper
-import Moya
-import ObjectMapper
-import RealmSwift
+import Foundation
 
 class SearchPresenter: NSObject {
     
