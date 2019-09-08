@@ -56,6 +56,4 @@ class DetailsViewController: UIViewController {
             self.present(safariVC, animated: true, completion: nil)
         }
     }
-    
-    
 }
