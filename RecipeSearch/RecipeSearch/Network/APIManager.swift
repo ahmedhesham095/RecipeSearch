@@ -30,7 +30,9 @@ class APIManager {
                 do {
                     print("response success")
                     let loadedData = try response.mapObject(SearchResult.self)
-                    self.cache.setArray(with: RecipeList.convertToRealmModel(with: loadedData.hits ?? []))
+                    if loadedData.hits?.count ?? 0 > 0 {
+                        self.cache.setArray(with: RecipeList.convertToRealmModel(with: loadedData.hits ?? []))
+                    }
                     completion(true , loadedData)
                 }
                 catch {
