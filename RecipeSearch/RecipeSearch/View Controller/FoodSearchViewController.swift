@@ -47,10 +47,11 @@ class FoodSearchViewController: UIViewController {
     /**
      show LoadMore
      */
-    func setupLoadMore()  {
+    func setupLoadMore() {
         searchTable.spr_setIndicatorFooter {
             self.isLoadMore = true
             self.presenter.search(with: self.searchString ?? "" , itemNumber: self.itemsNumber + 10)
+            self.itemsNumber += 10
         }
     }
     func setupSearchController() {
@@ -86,10 +87,7 @@ extension FoodSearchViewController : UITableViewDelegate , UITableViewDataSource
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         removeSearchView()
         let detailsVC = DetailsViewController()
-        detailsVC.providesPresentationContextTransitionStyle = true
-        detailsVC.definesPresentationContext = true
         detailsVC.modalPresentationStyle = .overCurrentContext
-        detailsVC.popoverPresentationController?.sourceView = self.view
         self.present(detailsVC , animated: true , completion: {
             if self.searchSuggesstions?.count ?? 0 > 0 {
                 detailsVC.setDescriptonData(or: self.searchSuggesstions?[indexPath.row])
